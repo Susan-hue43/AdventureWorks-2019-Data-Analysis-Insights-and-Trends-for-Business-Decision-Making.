@@ -1,9 +1,7 @@
 # AdventureWorks2019 Data Analysis Insights and Trends for Business Decision Making.
 
-![Photo by flexible fotography on Unsplash](https://unsplash.com/photos/a-person-riding-a-bicycle-on-a-dirt-path-near-a-forest-F_Wl-E7vT4I)
-![Photo by ksama on Unsplash](https://unsplash.com/photos/a-close-up-shot-of-a-bicycle-wheel-with-water-droplets-on-the-spokes-qfOc9m4G1_Y)
-![Photo by Shawn Powar on Unsplash](https://unsplash.com/photos/a-red-and-black-bicycle-parked-against-a-brick-wall-9Xq_n186zBw)  
-
+![Photo by Shawn Powar on Unsplash](https://github.com/Susan-hue43/AdventureWorks-2019-Data-Analysis-Insights-and-Trends-for-Business-Decision-Making./blob/main/shawn-powar-3N4X5GESq9g-unsplash.jpg) 
+Photo by Shawn Powar on Unsplash
 ## Introduction
 
 This project explores a sample database called **AdventureWorks2019** developed by Microsoft that represents a fictional company called *AdventureWorks Cycles*, which sells bicycles and related products. The database is widely used by both experts and beginners for learning and practicing SQL.
@@ -28,7 +26,16 @@ The following sections will present our analysis, recommendations, and conclusio
 
 ---
 
+## Skills Demonstrated
+*Tool: SSMS (SQL Server Management Studio)*
+- **SQL Querying & Data Extraction**
+- **Data Analysis**
+- **Business Insight & Interpretation**
+- **Data Visualization (via Excel)**
 
+---
+
+## Objectives:
 ## 1. Customer Behavior Analysis
 
 ### 1.1 Retrieve the top 10 customers by total purchase amount
@@ -44,6 +51,9 @@ JOIN Person.Person p ON c.PersonID = p.BusinessEntityID
 GROUP BY c.CustomerID, p.FirstName, p.LastName
 ORDER BY TotalPurchaseAmount DESC;
 ```
+
+![image](https://github.com/user-attachments/assets/9f73ef24-97c4-41c5-8af3-64655d157f31)
+
 
 **Observation:** The analysis of the top **10** customers by total purchase amount reveals a critical segment of high-value individuals who significantly drive revenue. Leading the group is **Roger Harui** with the highest expenditure of **$989,184.08**, closely followed by several others like **Andrew Dixon**, **Reuben D'sa**, **Ryan Calafato**, and **Robert Vessa**, each contributing over **$900,000**. This concentration of spending among a few customers underscores their importance to the business's financial performance.
 
@@ -67,6 +77,8 @@ GROUP BY c.CustomerID, p.FirstName, p.LastName, prod.ProductID, prod.Name
 HAVING COUNT(DISTINCT soh.SalesOrderID) >= 2
 ORDER BY c.CustomerID, prod.ProductID;
 ```
+
+![2_](2_.png)
 
 **Observation:** The query identified repeat customers, revealing that several individuals purchased the same product on multiple orders, indicating product loyalty. Notably, customers like **April Shan** (**Touring Tire Tube**, **16 orders**) and **Thomas Armstrong** (**Long-Sleeve Logo Jersey, L**, **12 orders**) show high repeat purchase frequency for specific items.
 
@@ -102,6 +114,8 @@ WHERE (PreviousYearSpent - TotalSpent) / NULLIF(PreviousYearSpent, 0) > 0.3
 ORDER BY SpendingDropPercentage DESC;
 ```
 
+![3_](3_.png)
+
 **Observation:** This pinpoints customers with a substantial reduction in their purchasing activity, signaling potential churn risk or decreased engagement. The results reveal several customers, such as **Scott MacDonald** (**99.89% drop** in **2013**) and **Nkenge McLin** (**99.67% drop** in **2013**), exhibiting near total cessation of spending.
 
 **Recommendation:** This significant drop requires immediate investigation to understand the reasons behind the decreased spending and implement targeted re-engagement strategies to potentially win back these customers and mitigate further revenue loss.
@@ -133,6 +147,8 @@ HAVING COUNT(*) >= 1 -- Ensure at least two purchases
 ORDER BY CustomerID;
 ```
 
+![4_](4_.png)
+
 **Observation:** This metric provides insight into the purchasing frequency and loyalty of individual customers. A lower average indicates more frequent repeat purchases, suggesting higher engagement. The results show varying purchase frequencies, with customers with ID **11000** exhibiting the highest average of **417.5 days** between orders, while others like **11153**, **11638**, **12563**, **14981**, and **18215** show an average of **0 days**.
 
 **Recommendation:** Understanding these patterns allows for targeted marketing efforts; customers with shorter intervals might be receptive to more frequent promotions, while those with longer intervals could benefit from strategies to encourage more frequent purchases and reduce potential churn.
@@ -152,6 +168,9 @@ GROUP BY pc.ProductCategoryID,
          pc.Name
 ORDER BY TotalPurchases DESC;
 ```
+
+![image](https://github.com/user-attachments/assets/b2a96366-3ebe-4441-9ccd-edf9a0de3111)
+
 
 **Observation:** This reveals the most popular product segments among the customer base, indicating areas of high demand. The results show that **"Accessories"** is the most purchased category with **41,194** total purchases, followed by **"Bikes"** (**40,031**), **"Clothing"** (**21,394**), and **"Components"** (**18,698**).
 
@@ -176,6 +195,8 @@ GROUP BY DATENAME(YEAR, OrderDate), DATENAME(MONTH, OrderDate)
 ORDER BY MonthlySales_Revenue DESC;
 ```
 
+![image](https://github.com/user-attachments/assets/760166ad-fd89-4d15-895c-0c991429929a)
+
 **Observation:** This provides a historical trend of sales performance, highlighting seasonal patterns and overall revenue generation on a monthly basis. The results show monthly sales figures for **2011**, **2012**, **2013**, and **2014**, with **March 2014** exhibiting the highest revenue at **$8M**.
 
 **Recommendation:** Analyzing these trends can inform forecasting, resource allocation, and targeted sales strategies for specific months. Understanding peak and low-performing months allows for proactive planning to maximize revenue during high seasons and potentially implement promotions or initiatives to boost sales during slower periods in the market.
@@ -193,6 +214,9 @@ JOIN Sales.SalesOrderHeader AS soh ON sod.SalesOrderID = soh.SalesOrderID
 GROUP BY p.ProductID, p.Name
 ORDER BY Total_Revenue DESC;
 ```
+
+![image](https://github.com/user-attachments/assets/1977308a-72ad-45de-89a8-dbdd09ef4de8)
+
 
 **Observation:** This highlights the most financially successful products, indicating key drivers of profitability. The results reveal that **Mountain-200**, **Road-250**, and **Road-150** are the top **10** leading revenue generating models. **"Mountain-200 Black, 38"** is the top revenue generator with **$4,400,592.80**, followed by other **"Mountain-200 Black, 42"** (**$4,009,494.76**), and **"Mountain-200 Silver, 38"** (**$3,693,678.03**) bikes.
 
@@ -215,7 +239,10 @@ GROUP BY sp.BusinessEntityID,
 ORDER BY Total_revenue DESC;
 ```
 
-**Observation:** This highlights the most successful sales personnel in terms of revenue generation, indicating top performers within the sales team. The results show **Linda Mitchell** as the leading sales representative with a total revenue of **$11M**, followed by **Jillian Carson**, **Michael Blythe**, **Jae Pak**, and **Tsvi Reiter**.
+![image](https://github.com/user-attachments/assets/ddfa01a8-05e9-4e93-9676-f6a63556d586)
+
+
+**Observation:** This highlights the most successful sales personnel in terms of revenue generation, indicating top performers within the sales team. The results show **Linda Mitchell** as the leading sales representative with a total revenue of **$12M**, followed by **Jillian Carson ($11M)** , **Michael Blythe ($10M)**, **Jae Pak ($10M)**, and **Tsvi Reiter ($8M)**.
 
 **Recommendation:** Recognizing and potentially rewarding these top performers can boost morale and provide successful models for the rest of the sales team. Analyzing their strategies and approaches could also yield valuable insights for improving overall sales effectiveness.
 
@@ -239,6 +266,8 @@ FROM YearlySales
 ORDER BY OrderYear;
 ```
 
+![2.4_](2.4_.png)
+
 **Observation:** This metric reveals the percentage change in sales revenue compared to the previous year, indicating the direction and magnitude of sales growth or decline. The results show a significant growth of **166.15%** in **2012** compared to **2011**, followed by a **29.06%** growth in **2013**. However, **2014** experienced a sales decline of **54.21%** compared to **2013**.
 
 **Recommendation:** The substantial growth in **2012** and **2013** suggests successful strategies or favorable market conditions during those periods. The sharp decline in **2014** warrants a thorough investigation to identify the contributing factors and implement corrective actions to regain growth momentum.
@@ -255,7 +284,10 @@ GROUP BY st.[Group]
 ORDER BY TotalRevenue DESC;
 ```
 
-**Observation:** This highlights the geographical areas where the company's sales are strongest, indicating key markets. The results show that **North America** is the top revenue generating region with **$89M**, followed by **Europe** (**$22M**) and the **Pacific region** (**$11M**).
+![image](https://github.com/user-attachments/assets/28ae7c28-758c-4509-887f-af8b366c342b)
+
+
+**Observation:** This highlights the geographical areas where the company's sales are strongest, indicating key markets. The results show that **North America** is the top revenue-generating region (**72.42%**) with **$89M**, followed by **Europe** (**18.00%**), **$22M** and the **Pacific region** (**9.59%**), **$11M**.
 
 **Recommendation:** Given that **North America** significantly outperforms other regions in revenue generation, resource allocation, and marketing efforts might be most effective when concentrated in this area. However, understanding the dynamics and potential for growth in **Europe** and the **Pacific region** could also inform strategic decisions for market expansion and investment.
 
@@ -282,6 +314,8 @@ JOIN Production.Product p2 ON pp.Product2ID = p2.ProductID
 GROUP BY p1.Name, p2.Name
 ORDER BY TimesPurchasedTogether DESC;
 ```
+
+![3.1_](3.1_.png)
 
 **Observation:** This reveals product affinities, indicating items that customers commonly buy simultaneously, suggesting potential complementary needs. The results show that **"Water Bottle - 30 oz."** and **"Mountain Bottle Cage"** are the most frequently purchased together (**1692 times**), followed by **"Water Bottle - 30 oz."** and **"Road Bottle Cage"** (**1521 times**).
 
@@ -318,6 +352,8 @@ FROM RankedProducts
 WHERE rnk = 1;
 ```
 
+![3.2_](3.2_.png)
+
 **Observation:** This highlights the top-performing product within different segments of the product catalog, revealing category leaders in terms of revenue generation in the market. The results show **"Hitch Rack - 4-Bike"** (**Accessories**) with **$237,096.16** revenue, **"Mountain-200 Black, 38"** (**Bikes**) with **$4,400,592.80**, **"Long-Sleeve Logo Jersey, L"** (**Clothing**) with **$198,754.96**, and **"HL Mountain Frame - Silver, 38"** (**Components**) with **$930,780.68**.
 
 **Recommendation:** Understanding the top products in each category allows for focused marketing and inventory strategies. Emphasizing these bestsellers in promotions and ensuring adequate stock levels can capitalize on existing demand. Analyzing the characteristics of these leading products can also inform decisions about product development and line extensions
@@ -335,7 +371,9 @@ LEFT JOIN Sales.SalesOrderDetail AS sod ON prod.ProductID = sod.ProductID
 WHERE sod.ProductID IS NULL;
 ```
 
-**Observation:** This highlights items in the product catalog that have not generated any sales, indicating potential issues with demand, marketing, or product relevance in the market. The results list **298** products that have never been sold, including items like **"Adjustable Race," "Bearing Ball,"** and various components.
+![3.3_](3.3_.png)
+
+**Observation:** This highlights items in the product catalog that have not generated any sales, indicating potential issues with demand, marketing, or product relevance in the market. The results list **238** products that have never been sold, including items like **"Adjustable Race," "Bearing Ball,"** and various components.
 
 **Recommendation:** The significant number of never sold products warrants a review of these items. This could involve assessing their market fit in Various Regions, evaluating past marketing efforts, considering product retirement, or exploring new strategies to generate demand. Addressing these non-performing products can optimize inventory and resource allocation.
 
@@ -355,6 +393,8 @@ GROUP BY p.ProductID, p.Name
 ORDER BY TotalCancelledQuantity DESC;
 ```
 
+![3.4_](3.4_.png)
+
 **Observation:** This highlights the products with the highest cancellation rates, indicating potential issues. The results show **no cancelled orders** in the provided dataset.
 
 **Recommendation:** With no cancellations reported, current processes might be effective in fulfilling orders.
@@ -372,6 +412,8 @@ JOIN Production.Product AS p ON sod.ProductID = p.ProductID
 GROUP BY sod.ProductID, p.Name
 ORDER BY Total_OrderQuantity DESC, total_revenue ASC;
 ```
+
+![3.5_](3.5_.png)
 
 **Observation:** This highlights products that are frequently ordered in large numbers but generate relatively little income, potentially due to low unit prices or high discounts in the market. The results show **"AW Logo Cap"** with the highest total order quantity (**8311**) but a relatively low total revenue of **$51,229.45**. Similarly, **"Water Bottle - 30 oz."** has a high order quantity (**6815**) with a revenue of **$28,654.16**.
 
@@ -399,6 +441,8 @@ FROM MonthlySales
 ORDER BY Month;
 ```
 
+![4.1_](4.1_.png)
+
 **Observation:** This reveals the percentage change in sales revenue month over month, highlighting trends in sales performance within shorter timeframes in the market. The results show fluctuating monthly growth rates, with significant increases in some months (e.g., **October 2011** at **829.40%**) and decreases in others (e.g., **November 2011** at **-84.18%**).
 
 **Recommendation:** Analyzing these monthly fluctuations can inform short term sales strategies, help identify seasonal peaks and troughs, and allow for more agile responses to changing market conditions or the effectiveness of promotional activities on a monthly basis.
@@ -424,6 +468,8 @@ SELECT
 FROM MonthlyRevenue
 ORDER BY SalesPersonID, OrderMonth, ThreeMonthMovingAvg DESC;
 ```
+
+![4.2_](4.2_.png)
 
 **Observation:** This smooths out short-term fluctuations in sales revenue, providing a clearer trend of individual sales performance over time for sales representatives. The results show the monthly revenue for each Sales Person along with their **3-month moving average** revenue.
 
@@ -452,6 +498,8 @@ FROM SpendingDecline
 WHERE DeclineAmount > 0  -- Only select months where spending declined
 ORDER BY DeclinePercentage DESC;
 ```
+
+![3_](3_.png)
 
 **Observation:** This pinpoints customers with a substantial negative trend in their purchasing behavior, indicating a high risk of churn. The results show customers with ID **29787** has **99.95%** the highest decline in spending, and **29974** with a **99.89%** decrease, highlighting a severe reduction in their purchase amounts over time.
 
