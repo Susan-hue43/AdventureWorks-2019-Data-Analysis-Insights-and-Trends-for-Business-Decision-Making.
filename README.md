@@ -27,7 +27,7 @@ The following sections will present our analysis, recommendations, and conclusio
 ---
 
 ## Skills Demonstrated
-*Tool: SSMS (SQL Server Management Studio)*
+*Tool: SSMS (SQL Server Management Studio), Excel*
 - **SQL Querying & Data Extraction**
 - **Data Analysis**
 - **Business Insight & Interpretation**
