@@ -2,6 +2,35 @@
 
 ![Photo by Shawn Powar on Unsplash](https://github.com/Susan-hue43/AdventureWorks-2019-Data-Analysis-Insights-and-Trends-for-Business-Decision-Making./blob/main/shawn-powar-3N4X5GESq9g-unsplash.jpg) 
 Photo by Shawn Powar on Unsplash
+
+# Table of Contents
+
+1.  [Introduction](#introduction)
+    * [Primary Objectives](#primary-objectives)
+2.  [Customer Behavior Analysis](#1-customer-behavior-analysis)
+    * [1.1 Retrieve the top 10 customers by total purchase amount](#11-retrieve-the-top-10-customers-by-total-purchase-amount)
+    * [1.2 Identify customers with repeat purchases of the same product](#12-identify-customers-with-repeat-purchases-of-the-same-product)
+    * [1.3 List customers whose spending dropped by more than 30% year-over-year](#13-list-customers-whose-spending-dropped-by-more-than-30-year-over-year)
+    * [1.4 Compute the average days between repeat purchases per customer](#14-compute-the-average-days-between-repeat-purchases-per-customer)
+    * [1.5 Identify the top 5 most common product categories purchased](#15-identify-the-top-5-most-common-product-categories-purchased)
+3.  [Sales Performance Analysis](#2-sales-performance-analysis)
+    * [2.1 Calculate total monthly sales revenue over the past three years](#21-calculate-total-monthly-sales-revenue-over-the-past-three-years)
+    * [2.2 Identify the most profitable products by total revenue](#22-identify-the-most-profitable-products-by-total-revenue)
+    * [2.3 Determine the top 5 sales representatives by revenue generated](#23-determine-the-top-5-sales-representatives-by-revenue-generated)
+    * [2.4 Calculate year-over-year sales growth rate](#24-calculate-year-over-year-sales-growth-rate)
+    * [2.5 Identify the top 5 regions by revenue generated](#25-identify-the-top-5-regions-by-revenue-generated)
+4.  [Product and Inventory Insights](#3-product-and-inventory-insights)
+    * [3.1 Identify products frequently purchased together](#31-identify-products-frequently-purchased-together)
+    * [3.2 Find the best‑selling product in each category](#32-find-the-best-selling-product-in-each-category)
+    * [3.3 Retrieve products that have never been sold](#33-retrieve-products-that-have-never-been-sold)
+    * [3.4 Identify the most cancelled products](#34-identify-the-most-cancelled-products)
+    * [3.5 Find products with high order quantities but low total revenue](#35-find-products-with-high-order-quantities-but-low-total-revenue)
+5.  [Advanced Business Insights](#4-advanced-business-insights)
+    * [4.1 Calculate the monthly sales growth rate](#41-calculate-the-monthly-sales-growth-rate)
+    * [4.2 Compute a 3‑month moving average revenue per sales representative](#42-compute-a-3month-moving-average-revenue-per-sales-representative)
+    * [4.3 Detect customers with significant spending declines over time](#43-detect-customers-with-significant-spending-declines-over-time)
+6.  [Conclusion](#conclusion)
+
 ## Introduction
 
 This project explores a sample database called **AdventureWorks2019** developed by Microsoft that represents a fictional company called *AdventureWorks Cycles*, which sells bicycles and related products. The database is widely used by both experts and beginners for learning and practicing SQL.
@@ -84,7 +113,7 @@ ORDER BY c.CustomerID, prod.ProductID;
 
 **Recommendation:** Understanding these repeat purchase patterns can inform strategies to enhance customer retention and drive further sales through personalized offers and relationship building.
 
-### 1.3 List customers whose spending dropped by more than 30% year‑over‑year
+### 1.3 List customers whose spending dropped by more than 30% year-over-year
 
 ```sql
 WITH YearlySpending AS(
@@ -246,7 +275,7 @@ ORDER BY Total_revenue DESC;
 
 **Recommendation:** Recognizing and potentially rewarding these top performers can boost morale and provide successful models for the rest of the sales team. Analyzing their strategies and approaches could also yield valuable insights for improving overall sales effectiveness.
 
-### 2.4 Calculate year‑over‑year sales growth rate
+### 2.4 Calculate year-over-year sales growth rate
 
 ```sql
 WITH YearlySales AS(
